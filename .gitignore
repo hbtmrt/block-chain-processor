@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/BlockChainProcessor/.vs/BlockChainProcessor/v16
+/BlockChainProcessor/BlockChainProcessor.Console/obj
+/BlockChainProcessor/BlockChainProcessor.Console/bin/Debug/net5.0
+/BlockChainProcessor/BlockChianProcessor.Core/obj
+/BlockChainProcessor/BlockChianProcessor.Core/bin/Debug/net5.0
