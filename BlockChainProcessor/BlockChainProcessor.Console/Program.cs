@@ -48,7 +48,7 @@ namespace BlockChainProcessor.App
                 }
                 catch (Exception)
                 {
-                    logger.Log("Critical error.");
+                    logger.Log(Constants.Message.Error.InvalidCommand);
                 }
             }
         }
