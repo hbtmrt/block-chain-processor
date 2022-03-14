@@ -1,4 +1,7 @@
-﻿namespace BlockChianProcessor.Core.Models
+﻿using System;
+using BlockChianProcessor.Core.CustomExceptions;
+
+namespace BlockChianProcessor.Core.Models
 {
     public sealed class BCCommand
     {
@@ -13,12 +16,26 @@
 
         private string GetCommandString(string commandArgument)
         {
-            return commandArgument.Split("program --")[1].Split(" ")[0].Trim();
+            try
+            {
+                return commandArgument.Split("program --")[1].Split(" ")[0].Trim();
+            }
+            catch (Exception)
+            {
+                throw new InvalidCommandException();
+            }
         }
 
         private string GetParameterString(string commandArgument)
         {
-            return commandArgument.Split($"program --{GetCommandString(commandArgument)}")[1].Replace("\'", "").Trim();
+            try
+            {
+                return commandArgument.Split($"program --{GetCommandString(commandArgument)}")[1].Replace("\'", "").Trim();
+            }
+            catch (Exception)
+            {
+                throw new InvalidCommandException();
+            }
         }
     }
 }

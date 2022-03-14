@@ -4,6 +4,7 @@ using BlockChainProcessor.App.CommandProcessors;
 using BlockChainProcessor.App.Factories;
 using BlockChainProcessor.App.Helpers;
 using BlockChainProcessor.App.Loggers;
+using BlockChianProcessor.Core.CustomExceptions;
 using BlockChianProcessor.Core.Models;
 using BlockChianProcessor.Core.Statics;
 
@@ -34,13 +35,16 @@ namespace BlockChainProcessor.App
                     continue;
                 }
 
-                BCCommand command = new(commandArgument);
-
-                ICommandProcessor commandProcessor = CommandProcessorFactory.CreateInstance(command.Command);
                 try
                 {
+                    BCCommand command = new(commandArgument);
+                    ICommandProcessor commandProcessor = CommandProcessorFactory.CreateInstance(command.Command);
                     string message = commandProcessor.Excecute(blockChain, command.Parameters);
                     logger.Log(message);
+                }
+                catch (InvalidCommandException)
+                {
+                    logger.Log(Constants.Message.Error.InvalidCommand);
                 }
                 catch (Exception)
                 {
