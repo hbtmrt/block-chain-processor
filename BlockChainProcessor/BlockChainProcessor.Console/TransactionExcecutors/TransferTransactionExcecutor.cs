@@ -6,6 +6,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.TransactionExcecutors
 {
+    /// <summary>
+    /// Transfers blocks from the wallet to another wallet.
+    /// </summary>
     public sealed class TransferTransactionExcecutor : ITransactionExcecutor
     {
         public bool Excecute(BlockChain blockChain, Transaction transaction)

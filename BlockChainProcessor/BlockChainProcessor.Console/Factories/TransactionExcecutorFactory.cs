@@ -3,6 +3,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.Factories
 {
+    /// <summary>
+    /// Resolves the type of the Transaction Excecutor based on the transaction type.
+    /// </summary>
     public sealed class TransactionExcecutorFactory
     {
         public static ITransactionExcecutor CreateInstance(TransactionType type)

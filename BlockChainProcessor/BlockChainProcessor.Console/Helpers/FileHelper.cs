@@ -1,11 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 using System.Threading;
 using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.Helpers
 {
+    /// <summary>
+    /// Defines methods related to File operation with BlockChain.
+    /// </summary>
     public sealed class FileHelper
     {
         private readonly ReaderWriterLockSlim cacheLock = new();
@@ -38,7 +40,6 @@ namespace BlockChainProcessor.App.Helpers
             }
             catch
             {
-
             }
             finally
             {

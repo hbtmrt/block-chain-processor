@@ -3,6 +3,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.Factories
 {
+    /// <summary>
+    /// Resolves the type of the command processor bases on the command.
+    /// </summary>
     public static class CommandProcessorFactory
     {
         public static ICommandProcessor CreateInstance(string command)

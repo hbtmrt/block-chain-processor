@@ -2,6 +2,9 @@
 
 namespace BlockChainProcessor.App.CommandProcessors
 {
+    /// <summary>
+    /// Handles --reset operation.
+    /// </summary>
     public class ResetCommandProcessor : ICommandProcessor
     {
         public string Excecute(BlockChain blockChain, string parameterString)

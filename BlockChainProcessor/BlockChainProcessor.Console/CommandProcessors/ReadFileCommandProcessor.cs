@@ -6,6 +6,9 @@ using BlockChianProcessor.Core.Models;
 
 namespace BlockChainProcessor.App.CommandProcessors
 {
+    /// <summary>
+    /// Handles --read-file operations.
+    /// </summary>
     public class ReadFileCommandProcessor : ICommandProcessor
     {
         private readonly TransactionHelper helper = new();

@@ -7,6 +7,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.TransactionExcecutors
 {
+    /// <summary>
+    /// Adds records to the wallets and blocks.
+    /// </summary>
     public class MintTransactionExcecutor : ITransactionExcecutor
     {
         private readonly TokenHelper tokenHelper = new();

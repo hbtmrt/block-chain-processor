@@ -3,6 +3,9 @@ using BlockChianProcessor.Core.Models;
 
 namespace BlockChainProcessor.App.Helpers
 {
+    /// <summary>
+    /// A helper to deal with wallets.
+    /// </summary>
     public sealed class WalletBlockHelper
     {
         public WalletBlock GetByToken(BlockChain blockChain, string tokenId)

@@ -4,6 +4,9 @@ using BlockChianProcessor.Core.Models;
 
 namespace BlockChainProcessor.App
 {
+    /// <summary>
+    /// The block-chain implementation.
+    /// </summary>
     public sealed class BlockChain
     {
         public List<WalletBlock> Chain { set; get; }

@@ -7,6 +7,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.TransactionExcecutors
 {
+    /// <summary>
+    /// Implements Burn transaction related functions.
+    /// </summary>
     public sealed class BurnTransactionExcecutor : ITransactionExcecutor
     {
         private readonly WalletBlockHelper blockHelper = new();

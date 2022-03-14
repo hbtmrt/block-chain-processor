@@ -4,6 +4,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.CommandProcessors
 {
+    /// <summary>
+    /// Handles NFT operations.
+    /// </summary>
     public class NftOwnershipCommandProcessor : ICommandProcessor
     {
         public string Excecute(BlockChain blockChain, string parameterString)

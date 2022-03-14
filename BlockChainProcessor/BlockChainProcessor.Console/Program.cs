@@ -12,15 +12,19 @@ namespace BlockChainProcessor.App
 {
     internal class Program
     {
+        #region Declarations
+
         private static readonly ILogger logger = LoggerFactory.CreateLogger();
         private static readonly CancellationTokenSource cancellationTokenSource = new();
         private static readonly FileHelper fileHelper = new();
         private static BlockChain blockChain = new();
 
+        #endregion Declarations
+
+        #region Constructor
+
         private static void Main(string[] args)
         {
-            AppDomain.CurrentDomain.ProcessExit += (object sender, EventArgs e) => fileHelper.Persist(blockChain);
-
             logger.Log(Constants.Message.InitializingProgram);
             blockChain = fileHelper.Load();
             logger.Log(Constants.Message.Initialized);
@@ -40,6 +44,8 @@ namespace BlockChainProcessor.App
                     BCCommand command = new(commandArgument);
                     ICommandProcessor commandProcessor = CommandProcessorFactory.CreateInstance(command.Command);
                     string message = commandProcessor.Excecute(blockChain, command.Parameters);
+
+                    fileHelper.Persist(blockChain);
                     logger.Log(message);
                 }
                 catch (InvalidCommandException)
@@ -52,6 +58,10 @@ namespace BlockChainProcessor.App
                 }
             }
         }
+
+        #endregion Constructor
+
+        #region Methods
 
         private static bool IsValidCommand(string commandArgument)
         {
@@ -69,5 +79,7 @@ namespace BlockChainProcessor.App
 
             return true;
         }
+
+        #endregion Methods
     }
 }

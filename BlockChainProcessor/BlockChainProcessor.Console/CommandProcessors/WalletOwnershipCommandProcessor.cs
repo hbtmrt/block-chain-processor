@@ -6,6 +6,9 @@ using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.CommandProcessors
 {
+    /// <summary>
+    /// Handles --wallet operations.
+    /// </summary>
     public class WalletOwnershipCommandProcessor : ICommandProcessor
     {
         public string Excecute(BlockChain blockChain, string parameterString)
