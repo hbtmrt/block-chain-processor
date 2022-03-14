@@ -34,7 +34,6 @@ namespace BlockChainProcessor.App.Helpers
             try
             {
                 string jsonString = JsonSerializer.Serialize(chain);
-                Console.WriteLine(jsonString);
                 File.WriteAllText(Constants.DataStoreFilePath, jsonString);
             }
             catch

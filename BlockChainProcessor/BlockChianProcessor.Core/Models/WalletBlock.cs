@@ -14,7 +14,7 @@ namespace BlockChianProcessor.Core.Models
         public string PreviousHash { get; set; }
         public string Hash { get; set; }
 
-        private readonly List<Transaction> _transactions;
+        public List<Transaction> Transactions { get; set; }
 
         public WalletBlock(DateTime timeStamp, string previousHash, string address)
         {
@@ -25,12 +25,12 @@ namespace BlockChianProcessor.Core.Models
             Address = address;
 
             Tokens = new();
-            _transactions = new();
+            Transactions = new();
         }
 
         public void AddTransaction(Transaction transaction)
         {
-            this._transactions.Add(transaction);
+            this.Transactions.Add(transaction);
         }
 
         private string CalculateHash()
@@ -42,7 +42,5 @@ namespace BlockChianProcessor.Core.Models
 
             return Convert.ToBase64String(outputBytes);
         }
-
-
     }
 }

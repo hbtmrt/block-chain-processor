@@ -7,12 +7,12 @@ namespace BlockChainProcessor.App
     public sealed class BlockChain
     {
         public List<WalletBlock> Chain { set; get; }
-        private readonly List<Transaction> _transactions;
+        public List<Transaction> Transactions { get; set; }
 
         public BlockChain()
         {
             Chain = new();
-            _transactions = new();
+            Transactions = new();
 
             AddGenesisBlock();
         }
@@ -21,7 +21,15 @@ namespace BlockChainProcessor.App
 
         public void AddTransaction(Transaction transaction)
         {
-            _transactions.Add(transaction);
+            Transactions.Add(transaction);
+        }
+
+        public void AddTransactions(List<Transaction> transactions)
+        {
+            transactions.ForEach(transaction =>
+            {
+                AddTransaction(transaction);
+            });
         }
 
         private void AddGenesisBlock()
