@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlockChianProcessor.Core.Statics;
 
 namespace BlockChainProcessor.App.CommandProcessors
 {
@@ -10,7 +6,8 @@ namespace BlockChainProcessor.App.CommandProcessors
     {
         public string Excecute(BlockChain blockChain, string parameterString)
         {
-            throw new NotImplementedException();
+            blockChain.Chain.ForEach(block => block.Tokens.Clear());
+            return Constants.Message.Reset;
         }
-     }
+    }
 }
