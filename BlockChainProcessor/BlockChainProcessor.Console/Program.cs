@@ -14,6 +14,7 @@ namespace BlockChainProcessor.App
     {
         #region Declarations
 
+        private static readonly Mutex singleton = new(true, Constants.ApplicationGuid);
         private static readonly ILogger logger = LoggerFactory.CreateLogger();
         private static readonly CancellationTokenSource cancellationTokenSource = new();
         private static readonly FileHelper fileHelper = new();
@@ -25,6 +26,13 @@ namespace BlockChainProcessor.App
 
         private static void Main(string[] args)
         {
+            if (!singleton.WaitOne(TimeSpan.Zero, true))
+            {
+                //there is already another instance running!
+                // prevent having more than one instances.
+                Environment.Exit(0);
+            }
+
             logger.Log(Constants.Message.InitializingProgram);
             blockChain = fileHelper.Load();
             logger.Log(Constants.Message.Initialized);

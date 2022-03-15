@@ -3,6 +3,7 @@
     public static class Constants
     {
         public const string DataStoreFilePath = @"data-store.json";
+        public const string ApplicationGuid = "37D49B78-32D3-4A3E-BE30-864485E8BD77";
 
         public static class Command
         {
