@@ -1,5 +1,5 @@
 # Blockchain event stream processor
-##Demonstration
+## Demonstration
 [![](https://github.com/hbtmrt/block-chain-processor/blob/main/blockchain-demo.gif)](https://github.com/hbtmrt/block-chain-processor/blob/main/blockchain-demo.gif)
 
 ## Project Structure
